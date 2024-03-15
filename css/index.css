@@ -1,3 +1,202 @@
-body{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    height: 100vh;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100%;
+}
+
+header h1 {
+    color: #005792;
+    margin-bottom: 20px;
+}
+
+.search-section {
+    margin-bottom: 20px;
+}
+
+input[type="search"], .reset-button {
+    height: 40px;
+    padding: 0 15px;
+    font-size: 16px;
+}
+
+input[type="search"] {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 20px 0 0 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.reset-button {
+    background-color: #eee;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    width: 40px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.results, .favorites {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 45%;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.search-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="search"] {
+    height: 40px;
+    padding: 0 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.reset-button {
+    position: absolute;
+    right: 30px; /* Ajustez en fonction de la taille de votre barre de recherche */
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #666;
+    font-size: 18px;
+    visibility: hidden; /* Le bouton est caché par défaut */
+}
+
+/* Pour afficher le bouton lorsque l'utilisateur commence à taper */
+input[type="search"]:not(:placeholder-shown) + .reset-button {
+    visibility: visible;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+input[type="search"] {
+    padding-right: 30px; /* Faites de la place pour l'icône de réinitialisation */
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.reset-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 20px;
+}
+
+input[type="search"]:focus + .reset-icon {
+    color: #000; /* Changez la couleur de l'icône lors de la focalisation sur le champ */
+}
+
+.result-item {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Ajoute un effet de transition pour le changement de couleur */
+}
+
+.result-item:hover {
+    background-color: #d41010; /* Change la couleur de fond au survol */
+}
+
+
+.favorite-button {
+    background-color: grey; /* Fond gris par défaut */
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-left: 5px;
+}
+
+.favorite-button.active {
+    background-color: #008CBA; /* Fond vert */
+    color: white;
+}
+
+#favoritesList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.favorite-item {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.favorite-item .remove-favorite {
+    color: red;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.country-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    padding: 20px;
+    margin-top: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.country-flag {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.country-details {
+    font-size: 14px;
+}
+
+.country-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+

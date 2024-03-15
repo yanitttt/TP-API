@@ -1,13 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>Document</title>
+    <title>Encyclopédie des Pays Interactive</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" type="image/png" href="favicon.png"/>
 </head>
 <body>
-    <h2>Bienvenu sur la page d'acceuil de notre projet API </h2>
-    <h3>REST Countries</h3>
+    <div class="container">
+        <header>
+            <h1>Encyclopédie des Pays</h1>
+        </header>
+        <div class="search-container">
+            <input type="search" id="searchBox" placeholder="Rechercher un pays...">
+            <button id="favoriteButton" class="favorite-button">☆</button>
+            <button id="resetIcon" class="clear-button">X</button>
+            <!-- Le bouton de recherche semble superflu si la recherche est dynamique -->
+        </div>
+        <div id="favoritesContainer">
+            <h2>Favoris</h2>
+            <div id="favoritesDisplay">(Aucune recherche favorite)</div>
+        </div>        
+        <div class="content">
+            <section id="results" class="results">
+                <!-- Les résultats de la recherche s'afficheront ici -->
+            </section>
+            <!-- Suppression de la section des favoris redondante -->
+        </div>
+    </div>
+    <footer>
+        <p>Projet réalisé par [Votre Nom].</p>
+    </footer>
+    <script src="js/main.js"></script>
 </body>
 </html>
