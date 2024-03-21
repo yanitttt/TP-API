@@ -134,10 +134,6 @@ input[type="search"]:focus + .reset-icon {
     transition: background-color 0.3s ease; /* Ajoute un effet de transition pour le changement de couleur */
 }
 
-.result-item:hover {
-    background-color: #d41010; /* Change la couleur de fond au survol */
-}
-
 
 .favorite-button {
     background-color: grey; /* Fond gris par défaut */
@@ -200,3 +196,10 @@ input[type="search"]:focus + .reset-icon {
 }
 
 
+.planet-logo {
+    position: fixed; /* Assurez-vous que le logo reste en place lors du défilement */
+    top: 20px; /* Ajustez selon votre mise en page */
+    left: 20px; /* Ajustez selon votre mise en page */
+    width: 250px; /* Ajustez la taille selon vos besoins */
+    z-index: 1000; /* Assurez-vous que le logo reste au-dessus du contenu */
+}
