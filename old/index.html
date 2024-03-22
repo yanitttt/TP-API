@@ -8,41 +8,31 @@
     <link rel="icon" type="image/png" href="favicon.png"/>
 </head>
 <body>
+    <img src="logo-planete-3.png" alt="Logo Planète" class="planet-logo">
     <div class="container">
         <header>
-            <img src="logo-planete-3.png" alt="Logo Planète" class="planet-logo">
+            <h1>Encyclopédie des Pays</h1>
         </header>
-        <h1>Encyclopédie des Pays</h1>
         <div class="search-container">
-            <input type="search" id="searchBox" placeholder="Rechercher un pays..." autofocus>
-            <select id="filter" class="filter-select">
-                <option value="all">Tous les pays</option>
-                <option value="africa">Afrique</option>
-                <option value="americas">Amériques</option>
-                <option value="asia">Asie</option>
-                <option value="europe">Europe</option>
-                <option value="oceania">Océanie</option>
-            </select>
+            <input type="search" id="searchBox" placeholder="Rechercher un pays...">
             <button id="favoriteButton" class="favorite-button">☆</button>
-            <button id="sidebarButton" class="sidebar-button">☰</button>
             <button id="resetIcon" class="clear-button">X</button>
+            <!-- Le bouton de recherche semble superflu si la recherche est dynamique -->
         </div>
-        <div id="favoritesContainer" class="sidebar">
+        <div id="favoritesContainer">
             <h2>Favories</h2>
             <div id="favoritesDisplay">(Aucune recherche favorite)</div>
         </div>        
         <div class="content">
             <section id="results" class="results">
+                <!-- Les résultats de la recherche s'afficheront ici -->
             </section>
+            <!-- Suppression de la section des favoris redondante -->
         </div>
     </div>
     <footer>
         <p>Projet réalisé par Arthur Laumay et Yani Djoudad.</p>
     </footer>
     <script src="js/main.js"></script>
-    <script src="js/Pays.js"></script>
-    <script src="js/controller.js"></script>
-    <script src="js/model.js"></script>
-    <script src="js/view.js"></script>
 </body>
 </html>

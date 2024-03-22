@@ -15,34 +15,84 @@ body, html {
     min-height: 100%;
 }
 
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+}
+
 header h1 {
     color: #005792;
-    margin-bottom: 20px;
+    margin: 0 auto;
 }
 
-.search-section {
-    margin-bottom: 20px;
+.planet-logo {
+    width: 12rem;
+    height: auto;
+    margin-left: 20px;
 }
 
-input[type="search"], .reset-button {
-    height: 40px;
-    padding: 0 15px;
+.search-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+#filter {
+    margin-right: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     font-size: 16px;
+    background-color: #fff;
+    color: #333;
 }
 
 input[type="search"] {
-    width: 300px;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 300px;
 }
 
-.reset-button {
+.favorite-button, .clear-button, .sidebar-button {
+    margin-left: 10px;
     background-color: #eee;
     border: none;
-    border-radius: 0 20px 20px 0;
+    border-radius: 50%;
     cursor: pointer;
     width: 40px;
+    height: 40px;
+    font-size: 20px;
+}
+
+#favoritesContainer {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #f0f2f5;
+    border-left: 1px solid #ccc;
+    padding: 20px;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+}
+
+#favoritesContainer.open {
+    transform: translateX(0);
 }
 
 .content {
@@ -51,12 +101,12 @@ input[type="search"] {
     width: 100%;
 }
 
-.results, .favorites {
+.results {
     margin: 10px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 45%;
+    width: 80%;
 }
 
 footer {
@@ -69,137 +119,72 @@ footer {
     bottom: 0;
 }
 
-.search-section {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.country-flag{
+    width: 30rem;
+    height: auto;
 }
 
-input[type="search"] {
-    height: 40px;
-    padding: 0 20px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
 
-.reset-button {
-    position: absolute;
-    right: 30px; /* Ajustez en fonction de la taille de votre barre de recherche */
+.filter-select {
+    padding: 10px;
     border: none;
-    background-color: transparent;
-    cursor: pointer;
-    color: #666;
-    font-size: 18px;
-    visibility: hidden; /* Le bouton est caché par défaut */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
 }
 
-/* Pour afficher le bouton lorsque l'utilisateur commence à taper */
-input[type="search"]:not(:placeholder-shown) + .reset-button {
-    visibility: visible;
+.filter-select:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.search-container {
-    position: relative;
+.results {
     display: flex;
+    flex-direction: column;
     align-items: center;
-}
-
-input[type="search"] {
-    padding-right: 30px; /* Faites de la place pour l'icône de réinitialisation */
-    width: 100%;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-}
-
-.reset-icon {
-    position: absolute;
-    right: 10px;
-    cursor: pointer;
-    color: #ccc;
-    font-size: 20px;
-}
-
-input[type="search"]:focus + .reset-icon {
-    color: #000; /* Changez la couleur de l'icône lors de la focalisation sur le champ */
+    width: 80%;
+    margin: 0 auto;
 }
 
 .result-item {
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Ajoute un effet de transition pour le changement de couleur */
-}
-
-
-.favorite-button {
-    background-color: grey; /* Fond gris par défaut */
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-    margin-left: 5px;
-}
-
-.favorite-button.active {
-    background-color: #008CBA; /* Fond vert */
-    color: white;
-}
-
-#favoritesList {
-    list-style-type: none;
-    padding: 0;
-}
-
-.favorite-item {
-    margin: 5px 0;
-    cursor: pointer;
-}
-
-.favorite-item .remove-favorite {
-    color: red;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-.country-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    width: 100%;
     padding: 20px;
-    margin-top: 20px;
-    width: 300px;
-    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
-.country-flag {
-    width: 100px;
+.result-item:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.result-item img {
+    width: 100%;
     height: auto;
+    object-fit: cover;
     border-radius: 5px;
     margin-bottom: 20px;
 }
 
-.country-details {
-    font-size: 14px;
+.result-item h2 {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-size: 24px;
 }
 
-.country-name {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-
-.planet-logo {
-    position: fixed; /* Assurez-vous que le logo reste en place lors du défilement */
-    top: 20px; /* Ajustez selon votre mise en page */
-    left: 20px; /* Ajustez selon votre mise en page */
-    width: 250px; /* Ajustez la taille selon vos besoins */
-    z-index: 1000; /* Assurez-vous que le logo reste au-dessus du contenu */
+.result-item p {
+    margin: 0;
+    padding: 0;
+    color: #666;
+    font-size: 16px;
 }
